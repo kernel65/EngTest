@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net;
-using System.Web;
+
 
 namespace EngTestWordsUI
 {
@@ -13,16 +11,16 @@ namespace EngTestWordsUI
     {
 
         private Form2 form2;
-        
+
         //Поле, содержащее uri ссылки к изображениям
         private List<String> links = new List<string>();
         public List<String> Links
         {
-            get { return this.links; }        
+            get { return this.links; }
         }
 
         //Поле, которое позволяет получить доступ к api pixabay
-        private String pixabayKey = "5756798-f08e699c5ad3614c060f872b4";
+        private String pixabayKey = "26824481-c1f3af4d866d1a651f90221bb";
         public String PixabayKey
         {
             get { return this.pixabayKey; }
@@ -39,33 +37,26 @@ namespace EngTestWordsUI
         public PixabayImages(Form2 form)
         {
             form2 = form;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls |
+                                                    SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
         }
 
-
-        public async Task<String> getResponseFromSite(String req)
+        public async Task<String> GetResponseFromSite(String req)
         {
-            
-            
-
             List<String> lnks = new List<String>();
-            WebRequest request = getRequest(req);
-            
+            WebRequest request = GetRequest(req);
+
             try
             {
                 Task<WebResponse> wResponseAsync = request.GetResponseAsync();
-
                 form2.pictureBox.Load(Directory.GetCurrentDirectory() + @"\ProgramsFiles\wait.gif");
-                //Ожидаем завершения асинхронной задачи.
-                WebResponse wResponse = await wResponseAsync;              
 
+                //Ожидаем завершения асинхронной задачи.
+                WebResponse wResponse = await wResponseAsync;
                 using (StreamReader sr = new StreamReader(wResponse.GetResponseStream()))
                 {
                     jsonInput = sr.ReadToEnd();
-                    sr.Close();
-                    wResponse.Close();
                 }
-
-
             }
             catch (WebException e)
             {
@@ -81,34 +72,23 @@ namespace EngTestWordsUI
             return jsonInput;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="jsonParam">
-        ///   Параметры pixabay
-        ///     pageURL
-        ///     previewURL
-        ///     webformatURL
-        ///     userImageURL
-        /// </param>
-        public async Task getLinks(String request, String jsonParam)
+        public async Task GetLinks(String request, String jsonParam)
         {
             List<String> links = new List<String>();
-            Task<String> jsonTask = getResponseFromSite(request);
-            String test =  await jsonTask;
+            Task<String> jsonTask = GetResponseFromSite(request);
+            String test = await jsonTask;
 
             if (test != null)
             {
-                getAllLinks(test, jsonParam, links);
+                GetAllLinks(test, jsonParam, links);
                 this.links = links;
             }
             else
-               throw new Exception("Exception in getResponseFromSite");
+                throw new Exception("Exception in getResponseFromSite");
 
         }
 
-        public void saveJsonToFile(String fileName, String jsonString, String folder)
+        public void SaveJsonToFile(String fileName, String jsonString, String folder)
         {
             try
             {
@@ -121,7 +101,6 @@ namespace EngTestWordsUI
                 using (StreamWriter swr = new StreamWriter(folder + @"\" + fileName))
                 {
                     swr.Write(jsonString);
-                    swr.Close();
                 }
             }
             catch (Exception e)
@@ -130,7 +109,7 @@ namespace EngTestWordsUI
             }
         }
 
-        public void saveLinksToFile(String fileName, List<String> links, String folder)
+        public void SaveLinksToFile(String fileName, List<String> links, String folder)
         {
             int index = fileName.IndexOf(".");
             String subName = fileName.Substring(index, fileName.Length - index - 1);
@@ -142,22 +121,20 @@ namespace EngTestWordsUI
             {
                 foreach (String lnk in links)
                 {
-                    swr.WriteLine(lnk);                   
+                    swr.WriteLine(lnk);
                 }
-
-                swr.Close();
             }
         }
 
-        private WebRequest getRequest(String request)
+        private WebRequest GetRequest(String request)
         {
             WebRequest wr = WebRequest.Create("https://pixabay.com/api/?key=" + pixabayKey +
                                                               "&q=" + request + "&image_type=photo");
             wr.Timeout = 2000;
             return wr;
-        }      
-     
-        private void getAllLinks(String str, String param, List<String> links)
+        }
+
+        private void GetAllLinks(String str, String param, List<String> links)
         {
             int index = 0;
 
@@ -168,10 +145,7 @@ namespace EngTestWordsUI
                 String lnk = str.Substring(index + param.Length + 3, tmpIndex - (index + param.Length + 3));
                 index = tmpIndex + 1;
                 links.Add(lnk);
-
             }
         }
-
-
     }
 }

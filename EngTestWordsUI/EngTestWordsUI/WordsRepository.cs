@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace EngTestWordsUI
@@ -28,11 +26,11 @@ namespace EngTestWordsUI
         {
             get
             {
-                if(currentChars.Count == 0 || currentChars == null)
+                if (currentChars.Count == 0 || currentChars == null)
                 {
                     //Засунуть ф-цию
                     if (words.Count > 0)
-                        currentChars = getDictionaryChars(words);
+                        currentChars = GetDictionaryChars(words);
                     else
                         return null;
                 }
@@ -49,7 +47,7 @@ namespace EngTestWordsUI
             set { engChar = value; }
 
         }
-        
+
         //Здесь содержаться слова по алфавиту
         private static Dictionary<String, Dictionary<String, String>> words = new Dictionary<String, Dictionary<String, String>>();
         public static Dictionary<String, Dictionary<String, String>> Words
@@ -84,9 +82,9 @@ namespace EngTestWordsUI
 
             set
             {
-                if(limitWords["a"] == null)
+                if (limitWords["a"] == null)
                 {
-                    for(int i = 0; i < chars.Length; i++)
+                    for (int i = 0; i < chars.Length; i++)
                     {
                         limitWords[chars[i]] = new List<int>();
                     }
@@ -95,24 +93,23 @@ namespace EngTestWordsUI
 
         }
 
-        public static List<String> readWordsFromTxtFile(String fileName)
+        public static List<String> ReadWordsFromTxtFile(String fileName)
         {
             List<String> lines = new List<string>();
-            iniDictionary();
+            IniDictionary();
 
             try
             {
-               
                 using (StreamReader sr = new StreamReader(fileName, Encoding.GetEncoding("windows-1251")))
                 {
-                    while(sr.Peek() > -1)
+                    while (sr.Peek() > -1)
                     {
                         String line = sr.ReadLine();
                         lines.Add(line);
                     }
                 }
             }
-            catch(FileNotFoundException e)
+            catch (FileNotFoundException e)
             {
                 //Вывести всплывающее сообщение, что файл отсутствует
                 return null;
@@ -125,14 +122,13 @@ namespace EngTestWordsUI
             return lines;
         }
 
-        public static void parseLines(List<String> lines)
+        public static void ParseLines(List<String> lines)
         {
             String engLine = null;
             String ruLine = null;
 
             foreach (String line in lines)
             {
-
                 try
                 {
                     int index = line.IndexOf("-", 0);
@@ -141,11 +137,11 @@ namespace EngTestWordsUI
                     {
                         engLine = line.Substring(0, index).Trim().ToLower();
                         ruLine = line.Substring(index + 1, line.Length - index - 1).Trim().ToLower();
-                        addWordsToDictionary(engLine, ruLine);
-                        iniLimitWords(engLine);
+                        AddWordsToDictionary(engLine, ruLine);
+                        IniLimitWords(engLine);
                     }
                 }
-                catch(ArgumentException e)
+                catch (ArgumentException e)
                 {
                     Console.WriteLine(e.Message);
                 }
@@ -153,11 +149,11 @@ namespace EngTestWordsUI
 
         }
 
-        private static void iniLimitWords(String engLine)
+        private static void IniLimitWords(String engLine)
         {
             String firstChar = engLine.Substring(0, 1).ToLower();
 
-            for(int i = 0; i<chars.Length; i++)
+            for (int i = 0; i < chars.Length; i++)
             {
                 if (firstChar.Equals(chars[i]))
                 {
@@ -167,7 +163,7 @@ namespace EngTestWordsUI
             }
         }
 
-        private static void addWordsToDictionary(String engLine, String ruLine)
+        private static void AddWordsToDictionary(String engLine, String ruLine)
         {
             String firstChar = engLine.Substring(0, 1).ToLower();
 
@@ -181,28 +177,23 @@ namespace EngTestWordsUI
             }
         }
 
-        private static void iniDictionary()
+        private static void IniDictionary()
         {
             for (int i = 0; i < chars.Length; i++)
             {
                 words.Add(chars[i], new Dictionary<string, string>());
                 limitWords.Add(chars[i], new List<int>());
             }
-                
+
         }
 
-        private static void setCurrentChars(String[] cChars)
-        {
-            
-        }
-
-        private static List<String> getDictionaryChars(Dictionary<String, Dictionary<String, String>> wrds)
+        private static List<String> GetDictionaryChars(Dictionary<String, Dictionary<String, String>> wrds)
         {
             List<String> chars = new List<string>();
 
             foreach (String w in wrds.Keys)
             {
-                
+
                 if (wrds[w].Count != 0)
                     chars.Add(w);
             }

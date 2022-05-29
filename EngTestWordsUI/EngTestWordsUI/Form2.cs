@@ -30,12 +30,12 @@ namespace EngTestWordsUI
         private void Form2_Load(object sender, EventArgs e)
         {
             iniComboBox();
-            factory.form2Ini();           
+            factory.Form2Ini();           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            factory.startTest();
+            factory.StartTest();
         }
 
         private void label1_Click(object sender, EventArgs e)

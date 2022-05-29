@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>EngTestWordsUI</RootNamespace>
     <AssemblyName>EngTestWordsUI</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,6 +80,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -92,6 +94,72 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProgramsFiles\3000wrds.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%280%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%281%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2810%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2811%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2812%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2813%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2814%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2815%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2816%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2817%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2818%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2819%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%282%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2820%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2821%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2822%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2823%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2824%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%2825%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%283%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%284%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%285%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%286%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%287%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%288%29.txt" />
+    <Content Include="ProgramsFiles\5000wordsBreakUp\5000wrds%289%29.txt" />
+    <Content Include="ProgramsFiles\5000wrds.txt" />
+    <Content Include="ProgramsFiles\Debug5000wrds%280%29.txt" />
+    <Content Include="ProgramsFiles\harry potter 1.txt" />
+    <Content Include="ProgramsFiles\harry potter 2.txt" />
+    <Content Include="ProgramsFiles\NoImageFound.jpg" />
+    <Content Include="ProgramsFiles\oxford3000.txt" />
+    <Content Include="ProgramsFiles\oxford3000Splited.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%280%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%281%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%2810%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%2811%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%282%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%283%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%284%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%285%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%286%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%287%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%288%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\oxford3000%289%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\Final3000\unknown\oxford3000unk%280%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%280%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%281%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%2810%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%2811%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%282%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%283%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%284%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%285%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%286%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%287%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%288%29.txt" />
+    <Content Include="ProgramsFiles\Oxford3000words\oxford3000%289%29.txt" />
+    <Content Include="ProgramsFiles\wait.gif" />
+    <Content Include="ProgramsFiles\words.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

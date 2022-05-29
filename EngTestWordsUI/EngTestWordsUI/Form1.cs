@@ -64,14 +64,14 @@ namespace EngTestWordsUI
         //Инициализируем, прежде чем открыть 2-ю форму
         private void initialization()
         {
-            List<String> lines = WordsRepository.readWordsFromTxtFile(WordsFileNameFolder);
+            List<String> lines = WordsRepository.ReadWordsFromTxtFile(WordsFileNameFolder);
 
             try
             {
                 if (lines != null)
                 {
                     
-                    WordsRepository.parseLines(lines);
+                    WordsRepository.ParseLines(lines);
                     if(!(comboBox1.SelectedItem == null))
                         WordsRepository.EngUserChar = comboBox1.SelectedItem.ToString().ToLower();
                     Form2 f2 = new Form2();
