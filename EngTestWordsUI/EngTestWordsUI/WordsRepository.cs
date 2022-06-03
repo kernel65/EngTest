@@ -45,7 +45,6 @@ namespace EngTestWordsUI
         {
             get { return engChar; }
             set { engChar = value; }
-
         }
 
         //Здесь содержаться слова по алфавиту
@@ -90,7 +89,6 @@ namespace EngTestWordsUI
                     }
                 }
             }
-
         }
 
         public static List<String> ReadWordsFromTxtFile(String fileName)
@@ -146,7 +144,6 @@ namespace EngTestWordsUI
                     Console.WriteLine(e.Message);
                 }
             }
-
         }
 
         private static void IniLimitWords(String engLine)
@@ -184,7 +181,6 @@ namespace EngTestWordsUI
                 words.Add(chars[i], new Dictionary<string, string>());
                 limitWords.Add(chars[i], new List<int>());
             }
-
         }
 
         private static List<String> GetDictionaryChars(Dictionary<String, Dictionary<String, String>> wrds)
