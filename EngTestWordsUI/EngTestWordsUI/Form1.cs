@@ -86,7 +86,6 @@ namespace EngTestWordsUI
                 MessageBox.Show("Неверный файл, выберите другой!" +
                                 "\nФормат файла - английские слова, должны быть разделены дефисом");
             }
-
         }
 
         private void iniComboBox()
