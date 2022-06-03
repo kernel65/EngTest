@@ -82,7 +82,6 @@ namespace EngTestWordsUI
             {
                 Console.WriteLine("Не удалось найти изображение по пути " + fullPath);
             }
-
         }
 
         public bool CheckImageInFolder(String folder, String fileName)
@@ -104,6 +103,5 @@ namespace EngTestWordsUI
 
             return false;
         }
-
     }
 }
