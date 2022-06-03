@@ -57,8 +57,7 @@ namespace EngTestWordsUI
                 {
                     WordsFileNameFolder = opFileDialog.FileName;
                     editFolderTbox.Text = WordsFileNameFolder;
-                }
-                    
+                }                   
         }
 
         //Инициализируем, прежде чем открыть 2-ю форму
@@ -87,8 +86,6 @@ namespace EngTestWordsUI
                 MessageBox.Show("Неверный файл, выберите другой!" +
                                 "\nФормат файла - английские слова, должны быть разделены дефисом");
             }
-
-
 
         }
 
